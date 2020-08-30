@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Test from "./components/test";
+import Main from "./pages/Main";
 
 function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
-          </Route>
-          <Route exact path="/books/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+	const [User, setUser] = useState({
+		userName: "Brad",
+		date: null,
+		sessionDuration: 0,
+		reportedAttention: null,
+		reportedMindfulness: null
+
+	});
+	const {
+		userName, date, sessionDuration, reportedAttention, reportedMindfulness
+	} = User;
+	return (
+		<Router>
+			<Switch>
+				<Route exact path={["/"]}>
+					<Test></Test>
+					<h1>{userName}</h1>
+					<Main />
+				</Route>
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;
