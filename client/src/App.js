@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Test from "./components/test";
 import Main from "./pages/Main";
 
 function App() {
@@ -19,8 +18,6 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path={["/"]}>
-					<Test></Test>
-					<h1>{userName}</h1>
 					<Main />
 				</Route>
 			</Switch>
