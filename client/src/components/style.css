@@ -20,3 +20,21 @@
     text-align: left;
     padding: 0 10px;
 }
+button.button-primary {
+    width: 100px;
+    height: 100px;
+	border-radius: 50px;
+	font-size:1em;
+	text-transform: uppercase;
+}
+button.button.button-primary.button-primary-active {
+	background: blue;
+	color:white;
+}
+button.button.button-primary.button-primary-inactive {
+    background: orange;
+}
+
+button.button.button-primary.button-primary-active:active,button.button.button-primary.button-primary-active:focus, button.button.button-primary.button-primary-inactive:active,button.button.button-primary.button-primary-active:active, button.button.button-primary.button-primary-inactive:focus {
+    outline: none;
+}

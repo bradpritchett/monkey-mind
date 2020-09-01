@@ -4,8 +4,8 @@ import Timer from "../components/Timer";
 
 const Wrapper = styled.div`
 background: white;
-margin: 115px auto;
-opacity: .6;
+margin: 30px auto;
+opacity: .85;
 width: 90%;
 `;
 function Main(props) {

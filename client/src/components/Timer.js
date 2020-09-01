@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from "styled-components";
 import "./style.css";
 
 const Timer = () => {
@@ -11,7 +12,9 @@ const Timer = () => {
 	function toggle() {
 		setIsActive(!isActive);
 	}
+	function save() {
 
+	}
 	function reset() {
 		setMinute(20)
 		setSeconds(0);
@@ -19,13 +22,10 @@ const Timer = () => {
 		setShownSeconds("00")
 	}
 	function handleInputChange(event) {
-		// add code to control the components here
-		console.log(event)
 		const { name, value } = event.target;
 		setMinute(value);
 	}
 	function reduceMinute() {
-		console.log("reducing minute")
 		setMinute(minute - 1);
 	}
 	useEffect(() => {
@@ -56,15 +56,6 @@ const Timer = () => {
 			}
 		}
 	}, [seconds]);
-
-	// useEffect(() => {
-	// 	if (isActive && seconds >= 10) {
-	// 		setShownSeconds(seconds.toString())
-	// 	} else if (isActive && seconds <= 9) {
-	// 		let tempNum = "0" + seconds.toString();
-	// 		setShownSeconds(tempNum)
-	// 	}
-	// }, [seconds]);
 
 	return (
 		<div className="app">
@@ -100,15 +91,19 @@ const Timer = () => {
 			</div>
 			<div className="row">
 				<div className="col">
+					<button className="button" onClick={reset}>
+						Reset
+		  			</button>
+				</div>
+				<div className="col">
 					<button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
 						{isActive ? 'Pause' : 'Start'}
 					</button>
 				</div>
-			</div>
-			<div className="row justify-content-md-center">
+
 				<div className="col">
-					<button className="button" onClick={reset}>
-						Reset
+					<button className="button" onClick={save}>
+						save
 		  			</button>
 				</div>
 			</div>
