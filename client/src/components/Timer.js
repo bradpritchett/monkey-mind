@@ -12,22 +12,27 @@ const Timer = () => {
 	function toggle() {
 		setIsActive(!isActive);
 	}
+
 	function save() {
 
 	}
+
 	function reset() {
 		setMinute(20)
 		setSeconds(0);
 		setIsActive(false);
 		setShownSeconds("00")
 	}
+
 	function handleInputChange(event) {
 		const { name, value } = event.target;
 		setMinute(value);
 	}
+
 	function reduceMinute() {
 		setMinute(minute - 1);
 	}
+
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {
@@ -84,30 +89,27 @@ const Timer = () => {
 								value={shownSeconds}
 								maxLength="2"
 							/>
-
 						</span>
 					</form>
 				</div>
 			</div>
 			<div className="row">
-				<div className="col">
-					<button className="button" onClick={reset}>
-						Reset
+				<div className="col ">
+					<div className="btn-group btn-group" role="group" aria-label="timer">
+						<button type="button" className="btn btn-warning" onClick={reset}>
+							Reset
 		  			</button>
-				</div>
-				<div className="col">
-					<button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
-						{isActive ? 'Pause' : 'Start'}
-					</button>
-				</div>
+						<button className={`btn  ${isActive ? 'btn-info' : 'btn-primary'}`} onClick={toggle}>
+							{isActive ? 'Pause' : 'Start'}
+						</button>
+						<button className="btn btn-success" onClick={save}>
+							save
+		  			</button>
+					</div>
 
-				<div className="col">
-					<button className="button" onClick={save}>
-						save
-		  			</button>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };
 
