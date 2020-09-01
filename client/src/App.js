@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
+import "./style.css";
 
 function App() {
 	const [User, setUser] = useState({
@@ -18,6 +19,7 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path={["/"]}>
+					<h1>Monkey Mind</h1>
 					<Main />
 				</Route>
 			</Switch>
