@@ -1,15 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	padding:2rem;
+}
+button {
+	cursor: pointer;
+	margin:2rem;
+	padding:1rem 2rem;
+	width:120px;
+}
 .app {
 	text-align: center;
 	padding: 2%;
 }
-.time {font-size: 3em}
+.time {
+	font-size: 2em;
+    width: 238px;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 100px 100px 0 0;
+    border-bottom: 0;
+	padding: 8px;
+	font-family: 'Krona One', sans-serif;
+}
 .time span {
+	background: transparent;
     display: inline-block;
     width: 100px;
 }
 
 .time input {
+	background: transparent;
 	border: 0;
+	cursor: initial;
 	text-align: right;
 	width: 100%;
 }
@@ -20,6 +46,10 @@
     text-align: left;
     padding: 0 10px;
 }
+.btn {
+	text-transform: uppercase;
+	font-family: 'Krona One', sans-serif;
+}
 button.button-primary {
     width: 100px;
     height: 100px;
@@ -27,14 +57,23 @@ button.button-primary {
 	font-size:1em;
 	text-transform: uppercase;
 }
-button.button.button-primary.button-primary-active {
-	background: blue;
-	color:white;
-}
-button.button.button-primary.button-primary-inactive {
-    background: orange;
-}
 
 button.button.button-primary.button-primary-active:active,button.button.button-primary.button-primary-active:focus, button.button.button-primary.button-primary-inactive:active,button.button.button-primary.button-primary-active:active, button.button.button-primary.button-primary-inactive:focus {
     outline: none;
+}
+
+.loginButton {
+	position: absolute;
+    right: 0;
+    top: 0;
+    margin: 7px;
+}
+
+h3.given {
+    position: absolute;
+    right: 132px;
+    top: 6px;
+    color: white;
+    font-size: 1em;
+    padding: 7px 15px;
 }
