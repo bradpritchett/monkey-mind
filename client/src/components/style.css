@@ -1,0 +1,22 @@
+.app {
+	text-align: center;
+	padding: 2%;
+}
+.time {font-size: 3em}
+.time span {
+    display: inline-block;
+    width: 100px;
+}
+
+.time input {
+	border: 0;
+	text-align: right;
+	width: 100%;
+}
+.time input.seconds {
+	text-align: left;
+}
+.time p {
+    text-align: left;
+    padding: 0 10px;
+}
