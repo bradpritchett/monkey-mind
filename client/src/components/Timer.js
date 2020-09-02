@@ -1,38 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import "./style.css";
-
+import { useAuth0 } from "@auth0/auth0-react";
 const Timer = () => {
 
 	const [minute, setMinute] = useState(20);
 	const [shownSeconds, setShownSeconds] = useState("00");
 	const [seconds, setSeconds] = useState(0);
 	const [isActive, setIsActive] = useState(false);
-
+	const { isAuthenticated } = useAuth0();
 	function toggle() {
 		setIsActive(!isActive);
 	}
-
 	function save() {
 
 	}
-
 	function reset() {
-		setMinute(20)
-		setSeconds(0);
+		setMinute(20);
 		setIsActive(false);
 		setShownSeconds("00")
 	}
-
 	function handleInputChange(event) {
 		const { name, value } = event.target;
 		setMinute(value);
 	}
-
+	function handleSecondChange(event) {
+		const { name, value } = event.target;
+		setShownSeconds(value)
+	}
 	function reduceMinute() {
 		setMinute(minute - 1);
 	}
-
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {
@@ -81,7 +79,7 @@ const Timer = () => {
 						:
 						<span>
 							<input
-								onChange={handleInputChange}
+								onChange={handleSecondChange}
 								type="text"
 								placeholder="00"
 								className="seconds"
@@ -89,6 +87,7 @@ const Timer = () => {
 								value={shownSeconds}
 								maxLength="2"
 							/>
+
 						</span>
 					</form>
 				</div>
@@ -102,7 +101,7 @@ const Timer = () => {
 						<button className={`btn  ${isActive ? 'btn-info' : 'btn-primary'}`} onClick={toggle}>
 							{isActive ? 'Pause' : 'Start'}
 						</button>
-						<button className="btn btn-success" onClick={save}>
+						<button className="btn btn-success" onClick={save} disabled={isAuthenticated ? false : true} >
 							save
 		  			</button>
 					</div>

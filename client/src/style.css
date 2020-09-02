@@ -1,11 +1,18 @@
 #root h1 {
-	font-family: 'Cormorant Garamond', serif;
+	font-family: 'Krona One', sans-serif;
 	text-align: center;
-	width:350px;
+	width:375px;
 	margin:0 auto;
 	margin-top:25px;
-
+	color: white;
 	padding: 7px;
-	background-color: white;
+	-webkit-text-stroke: 1px green;
+}
 
+img.profile {
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    right: 5px;
 }
