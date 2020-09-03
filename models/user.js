@@ -2,11 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+	email: { type: String, required: true },
 	userName: { type: String, required: true },
-	date: { type: Date, default: Date.now },
-	sessionDuration: { type: Number, required: true },
-	reportedAttention: { type: Number },
-	reportedMindfulness: { type: Number }
+	sessions: [{
+		date: { type: Date, default: Date.now },
+		sessionDuration: { type: Number },
+		setMinutes: { type: Number },
+		reportedAttention: { type: Number },
+		reportedMindfulness: { type: Number }
+	}]
 
 });
 

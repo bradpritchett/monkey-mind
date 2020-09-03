@@ -7,7 +7,7 @@ const Profile = () => {
 	return (
 		isAuthenticated && (
 			<h3 className="given">
-				Hello, {user.given_name}!
+				Hello, {user.email}!
 			</h3>
 		)
 

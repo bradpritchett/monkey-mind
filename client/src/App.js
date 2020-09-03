@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import "./style.css";
@@ -9,17 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
 	const { isLoading } = useAuth0;
-	const [User, setUser] = useState({
-		userName: "Brad",
-		date: null,
-		sessionDuration: 0,
-		reportedAttention: null,
-		reportedMindfulness: null
 
-	});
-	const {
-		userName, date, sessionDuration, reportedAttention, reportedMindfulness
-	} = User;
 	if (isLoading) return <div>Loading! One moment, please!</div>
 	return (
 		<Router>

@@ -1,5 +1,5 @@
 const express = require("express");
-
+const logger = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -12,6 +12,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
 }
+app.use(logger("dev"));
+
 // Add routes, both API and view
 app.use(routes);
 

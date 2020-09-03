@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import styled from "styled-components";
 import "./style.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import API from "../utils/API";
+
 const Timer = () => {
 
 	const [minute, setMinute] = useState(20);
 	const [shownSeconds, setShownSeconds] = useState("00");
 	const [seconds, setSeconds] = useState(0);
 	const [isActive, setIsActive] = useState(false);
-	const { isAuthenticated } = useAuth0();
+	const { isAuthenticated, user } = useAuth0();
 	function toggle() {
 		setIsActive(!isActive);
 	}
 	function save() {
-
+		if (isAuthenticated) {
+			console.log("saving session")
+			API.saveSession({
+				email: user.email,
+				sessions: {
+					date: new Date(Date.now()),
+					sessionDuration: seconds,
+					reportedAttention: 12,
+					reportedMindfullness: 3
+				}
+			})
+		}
 	}
 	function reset() {
 		setMinute(20);
@@ -21,16 +33,18 @@ const Timer = () => {
 		setShownSeconds("00")
 	}
 	function handleInputChange(event) {
-		const { name, value } = event.target;
+		const { value } = event.target;
 		setMinute(value);
 	}
 	function handleSecondChange(event) {
-		const { name, value } = event.target;
+		const { value } = event.target;
 		setShownSeconds(value)
 	}
 	function reduceMinute() {
 		setMinute(minute - 1);
 	}
+
+
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {

@@ -2,29 +2,23 @@ const db = require("../models");
 
 // Defining methods for the userController
 module.exports = {
-	findAll: function (req, res) {
+	findByEmail: function (req, res) {
 		db.User
-			.find(req.query)
-			.sort({ date: -1 })
+			.find({
+				'email': req.params.email
+			})
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},
-	findById: function (req, res) {
-		db.User
-			.findById(req.params.id)
-			.then(dbModel => res.json(dbModel))
-			.catch(err => res.status(422).json(err));
-	},
-	createSession: function (req, res) {
+	createUser: function (req, res) {
 		db.User
 			.create(req.body)
 			.then(dbModel => res.json(dbModel))
-			.catch(err => res.status(422).json(err));
+			.catch(err => res.status(422).json(err))
 	},
-	remove: function (req, res) {
+	createSession: function (req, res) {
 		db.User
-			.findById({ _id: req.params.id })
-			.then(dbModel => dbModel.remove())
+			.findOneAndUpdate(req.body)
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	}

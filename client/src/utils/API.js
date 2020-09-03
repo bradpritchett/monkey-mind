@@ -1,8 +1,13 @@
 import axios from "axios";
 
 export default {
-	// Gets all user stats
-	getUser: function (id) {
-		return axios.get("/api/user/" + id);
+	getUser: function (email) {
+		return axios.get("/api/user/" + email);
+	},
+	newUser: function (postData) {
+		return axios.post("/api/user/", postData);
+	},
+	saveSession: function (postData) {
+		return axios.post("/api/user", postData);
 	}
 };
