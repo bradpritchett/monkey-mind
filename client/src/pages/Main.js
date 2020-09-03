@@ -7,20 +7,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Wrapper = styled.div`
 background: white;
 margin: 30px auto;
-opacity: .85;
 max-width: 1000px;
-width: 90%;
-`;
+width: 90%;`;
+
 function Main(props) {
 	const [loggedIn, setLoggedIn] = useState({
 		username: "",
-		lastLogin: ""
-	})
+		id: ""
+	});
+
 	const { isAuthenticated, user } = useAuth0();
 	function processResponse(response) {
-		console.log("PROCESSING RESPONSE");
 		if (response.data.length === 0) {
-			console.log("creating new user");
 			API.newUser({
 				userName: user.name,
 				email: user.email,
@@ -31,15 +29,14 @@ function Main(props) {
 			})
 				.catch(err => console.log(err));;
 		} else {
-			console.log("Hello, " + response.data[0].userName)
+			setLoggedIn(response.data[0]._id)
 		}
 
-	}
+	};
+
 	useEffect(() => {
 		setLoggedIn("loading");
-		console.log(isAuthenticated)
 		if (isAuthenticated) {
-			console.log('getting user', user.email)
 			API.getUser(user.email)
 				.then(results => {
 					processResponse(results);
@@ -50,7 +47,9 @@ function Main(props) {
 	return (
 		<Wrapper>
 			<div className="wrapper container-fluid">
-				<Timer />
+				<Timer
+					id={loggedIn}
+				/>
 			</div>
 		</Wrapper>
 

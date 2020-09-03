@@ -3,7 +3,7 @@ import "./style.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
 
-const Timer = () => {
+const Timer = (params) => {
 
 	const [minute, setMinute] = useState(20);
 	const [shownSeconds, setShownSeconds] = useState("00");
@@ -15,9 +15,9 @@ const Timer = () => {
 	}
 	function save() {
 		if (isAuthenticated) {
-			console.log("saving session")
+
 			API.saveSession({
-				email: user.email,
+				id: params.id,
 				sessions: {
 					date: new Date(Date.now()),
 					sessionDuration: seconds,
