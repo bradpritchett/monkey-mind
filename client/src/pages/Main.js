@@ -53,9 +53,6 @@ function Main(props) {
 				<Timer
 					user={loggedIn}
 				/>
-				{console.log(isAuthenticated)}
-				{isAuthenticated ? <DataChart data={loggedIn.data} /> : <DataChart />}
-
 			</div>
 		</Wrapper>
 
