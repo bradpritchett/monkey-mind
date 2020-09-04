@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Timer from "../components/Timer";
-import DataChart from "../components/Chart";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -13,7 +12,7 @@ width: 90%;`;
 
 function Main(props) {
 	const [loggedIn, setLoggedIn] = useState({
-		data: [],
+		username: "",
 		id: ""
 	});
 
@@ -25,11 +24,13 @@ function Main(props) {
 				email: user.email,
 				sessions: []
 			}).then(result => {
-				setLoggedIn(result.userName)
+
+				setLoggedIn({ userName: result.userName, id: result._id })
+
 			})
 				.catch(err => console.log(err));;
 		} else {
-			setLoggedIn({ data: [...response.data[0].sessions], id: response.data[0]._id })
+			setLoggedIn({ userName: response.data[0].userName, id: response.data[0]._id })
 		}
 
 	};
@@ -45,19 +46,14 @@ function Main(props) {
 	}, [isAuthenticated]);
 
 	return (
-		<>
-			<Wrapper>
+		<Wrapper>
+			<div className="wrapper container-fluid">
 				<Timer
 					id={loggedIn}
 				/>
+			</div>
+		</Wrapper>
 
-			</Wrapper>
-			<Wrapper>
-				<DataChart
-					data={loggedIn.data}
-				/>
-			</Wrapper>
-		</>
 	);
 }
 
