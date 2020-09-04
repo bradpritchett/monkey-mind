@@ -17,7 +17,7 @@ const Timer = (params) => {
 		if (isAuthenticated) {
 
 			API.saveSession({
-				id: params.id,
+				id: params.user.id,
 				sessions: {
 					date: new Date(Date.now()),
 					sessionDuration: seconds,

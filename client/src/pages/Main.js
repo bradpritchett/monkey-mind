@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
+import DataChart from "../components/Chart";
 
 const Wrapper = styled.div`
 background: white;
@@ -12,7 +13,7 @@ width: 90%;`;
 
 function Main(props) {
 	const [loggedIn, setLoggedIn] = useState({
-		username: "",
+		data: [],
 		id: ""
 	});
 
@@ -23,20 +24,23 @@ function Main(props) {
 				userName: user.name,
 				email: user.email,
 				sessions: []
-			}).then(result => {
-
-				setLoggedIn({ userName: result.userName, id: result._id })
-
 			})
+				.then(result => {
+					console.log(result)
+					setLoggedIn({ data: result.data.sessions, id: result.data._id })
+				})
 				.catch(err => console.log(err));;
 		} else {
-			setLoggedIn({ userName: response.data[0].userName, id: response.data[0]._id })
+
+			console.log("here are datas", response)
+			setLoggedIn({ data: response.data[0].sessions, id: response.data[0]._id })
 		}
 
 	};
 
+
 	useEffect(() => {
-		setLoggedIn("loading");
+		setLoggedIn("No user loaded");
 		if (isAuthenticated) {
 			API.getUser(user.email)
 				.then(results => {
@@ -49,8 +53,10 @@ function Main(props) {
 		<Wrapper>
 			<div className="wrapper container-fluid">
 				<Timer
-					id={loggedIn}
+					user={loggedIn}
 				/>
+				{isAuthenticated ? <DataChart /> : <DataChart data={loggedIn.data} />}
+
 			</div>
 		</Wrapper>
 
