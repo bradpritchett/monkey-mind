@@ -12,6 +12,7 @@ const Timer = (params) => {
 	const { isAuthenticated, user } = useAuth0();
 	function toggle() {
 		setIsActive(!isActive);
+		playGong();
 	}
 	function save() {
 		if (isAuthenticated) {
@@ -49,7 +50,6 @@ const Timer = (params) => {
 	}
 	function playGong() {
 		gong.play();
-		toggle()
 	}
 
 	useEffect(() => {
@@ -68,7 +68,7 @@ const Timer = (params) => {
 		if (isActive) {
 			let int = parseInt(shownSeconds);
 			if (int === 0 && minute == 0) {
-				playGong();
+
 				toggle();
 			}
 			else if (int == 0 && minute !== 0) {
@@ -125,7 +125,7 @@ const Timer = (params) => {
 						<button type="button" className="btn btn-warning" onClick={reset}>
 							Reset
 		  			</button>
-						<button className={`btn  ${isActive ? 'btn-info' : 'btn-primary'}`} onClick={playGong}>
+						<button className={`btn  ${isActive ? 'btn-info' : 'btn-primary'}`} onClick={toggle}>
 							{isActive ? 'Pause' : 'Start'}
 						</button>
 						<button className="btn btn-success" onClick={save} disabled={isAuthenticated ? false : true} >
