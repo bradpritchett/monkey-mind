@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
-import DataChart from "../components/Chart";
 
 const Wrapper = styled.div`
 background: white;
