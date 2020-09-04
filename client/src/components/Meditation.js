@@ -21,7 +21,7 @@ const Meditation = (params) => {
 					</li>
 				</ol>
 				<p>The sweet spot of meditation lies in a light-enough hold on one’s attention so as not to lose awareness of the present moment unfolding around them, but with enough attention so as not to lose touch with the object of meditation. If you find your mind wandering that’s OK. Just return your attention to the object of meditation and continue as you were. Your mind will wander. It will wander less the more time you spend training it. It’s important to give yourself a break and allow your untrained mind space to grow. This wild, unpredictable mind is sometimes referred to as the monkey mind.</p>
-				<blockquote class="blockquote">
+				<blockquote className="blockquote">
 					<p className="mb-0">Simply close your eyes and allow yourself to hear all the sounds that are going on around you. Just listen to the general hum and buzz of the world as if you were listening to music. Don’t try to identify the sounds you are hearing, don’t put names on them. Simply allow them to play with your eardrums and let them go.”</p>
 					<p className="mb-0"> –Alan Watts</p>
 				</blockquote>

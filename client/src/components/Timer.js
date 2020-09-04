@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
 
 const Timer = (params) => {
-
+	const gong = new Audio(`${process.env.PUBLIC_URL}/sounds/gong.wav`);
 	const [minute, setMinute] = useState(20);
 	const [shownSeconds, setShownSeconds] = useState("00");
 	const [seconds, setSeconds] = useState(0);
@@ -35,6 +35,7 @@ const Timer = (params) => {
 	}
 	function handleInputChange(event) {
 		const { value } = event.target;
+		parseInt(value);
 		setMinute(value);
 	}
 	function handleSecondChange(event) {
@@ -42,7 +43,9 @@ const Timer = (params) => {
 		setShownSeconds(value)
 	}
 	function reduceMinute() {
-		setMinute(minute - 1);
+		if (minute !== 0) {
+			setMinute(minute - 1);
+		}
 	}
 
 
@@ -61,16 +64,22 @@ const Timer = (params) => {
 	useEffect(() => {
 		if (isActive) {
 			let int = parseInt(shownSeconds);
-			if (int === 0) {
+			if (int === 0 && minute == 0) {
+				gong.play();
+				toggle();
+			}
+			else if (int == 0 && minute !== 0) {
 				reduceMinute();
 				setShownSeconds(59)
 			}
 			else if (int > 10) {
-				let sub = int - 1;
-				setShownSeconds(sub)
+				int = int - 1;
+				setShownSeconds(int)
+				console.log(int)
 			} else if (int <= 10 && int > 0) {
-				let sub = int - 1;
-				setShownSeconds("0" + sub)
+				console.log(int)
+				int = int - 1;
+				setShownSeconds("0" + int)
 			}
 		}
 	}, [seconds]);
