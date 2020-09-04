@@ -31,8 +31,6 @@ function Main(props) {
 				})
 				.catch(err => console.log(err));;
 		} else {
-
-			console.log("here are datas", response)
 			setLoggedIn({ data: response.data[0].sessions, id: response.data[0]._id })
 		}
 
@@ -55,7 +53,8 @@ function Main(props) {
 				<Timer
 					user={loggedIn}
 				/>
-				{isAuthenticated ? <DataChart /> : <DataChart data={loggedIn.data} />}
+				{console.log(isAuthenticated)}
+				{isAuthenticated ? <DataChart data={loggedIn.data} /> : <DataChart />}
 
 			</div>
 		</Wrapper>
