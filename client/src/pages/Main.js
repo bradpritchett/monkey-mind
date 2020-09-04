@@ -53,9 +53,6 @@ function Main(props) {
 				<Timer
 					user={loggedIn}
 				/>
-
-
-
 			</div>
 		</Wrapper>
 
