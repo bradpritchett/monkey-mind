@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Timer from "../components/Timer";
+import Meditation from "../components/Meditation";
+import History from "../components/History";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Wrapper = styled.div`
 background: white;
@@ -47,14 +50,20 @@ function Main(props) {
 	}, [isAuthenticated]);
 
 	return (
-		<Wrapper>
-			<div className="wrapper container-fluid">
-				<Timer
-					user={loggedIn}
-				/>
-			</div>
-		</Wrapper>
-
+		<>
+			<Wrapper>
+				<div className="wrapper">
+					<Timer
+						user={loggedIn}
+					/>
+				</div>
+			</Wrapper>
+			<Wrapper>
+				<div className="container">
+					<Meditation />
+				</div>
+			</Wrapper>
+		</>
 	);
 }
 

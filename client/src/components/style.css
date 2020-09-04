@@ -8,7 +8,7 @@ body {
 }
 button {
 	cursor: pointer;
-	margin:2rem;
+	margin:0 !important;
 	padding:1rem 2rem;
 }
 .app {
@@ -93,3 +93,29 @@ h3.given {
 .ReactChart {
     min-height: 500px;
 }
+.bold {
+	font-weight: bold;
+}
+.wrapper {
+    padding: 7px;
+}
+
+li {
+    padding: 7px;
+    margin: 0px 40px;
+}
+
+blockquote.blockquote {
+    padding: 7px 30px;
+}
+
+h2.center {
+    text-align: center;
+    margin: 24px;
+}
+
+li a {
+    text-decoration: underline;
+    color: darkblue;
+}
+
