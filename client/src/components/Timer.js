@@ -23,6 +23,7 @@ const Timer = (params) => {
 					sessionDuration: seconds,
 					reportedAttention: 12,
 					reportedMindfullness: 3
+
 				}
 			})
 		}
