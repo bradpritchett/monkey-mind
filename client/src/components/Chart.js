@@ -13,7 +13,7 @@ const DataChart = (params) => {
 	)
 
 	function clickHandler() {
-		console.log(sessionArray.length)
+		console.log(sessionArray)
 		if (sessionArray.length === 0) {
 			setSessionArray(params.data)
 		}
