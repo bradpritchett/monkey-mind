@@ -72,7 +72,7 @@ button.button.button-primary.button-primary-active:active,button.button.button-p
 }
 .logoutButton {
     position: absolute;
-    right: -7px;
+    right: 0;
     top: 85px;
     margin: 7px;
     background: transparent;
