@@ -8,11 +8,18 @@
 	padding: 7px;
 	-webkit-text-stroke: 1px green;
 }
-
+#root h2 {
+	font-family: 'Krona One', sans-serif;
+}
 img.profile {
     width: 100px;
     position: absolute;
     right: 0;
     top: 5px;
     right: 5px;
+}
+
+.container {
+	background: white;
+	margin: 7px 0;
 }
