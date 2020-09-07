@@ -6,12 +6,15 @@ import History from "../components/History";
 import Profile from "../components/Profile";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserContext from "../utils/GlobalState";
 
 function Main(props) {
+
 	const [loggedIn, setLoggedIn] = useState({
-		data: [],
 		id: ""
 	});
+
+	const [sessions, setSessions] = useState([])
 	const [key, setKey] = useState('home');
 
 	const { isAuthenticated, user } = useAuth0();
@@ -30,7 +33,9 @@ function Main(props) {
 		if (response.data.length === 0) {
 			newUser(response);
 		} else {
-			setLoggedIn({ data: response.data[0].sessions, id: response.data[0]._id, name: response.data[0].userName, email: response.data[0].email })
+			console.log("response is", response.data[0].sessions)
+			setLoggedIn({ id: response.data[0]._id, name: response.data[0].userName, email: response.data[0].email })
+			setSessions(response.data[0].sessions);
 		}
 	};
 
@@ -41,8 +46,8 @@ function Main(props) {
 			sessions: []
 		})
 			.then(result => {
-				setLoggedIn({ data: result.data.sessions, id: result.data._id, name: response.data[0].userName, email: response.data[0].email })
-				window.location.reload();
+				setLoggedIn({ id: result.data._id, name: response.data[0].userName, email: response.data[0].email })
+				setSessions(result.data[0].sessions);
 			})
 			.catch(err => console.log(err));;
 		console.log("new user")
@@ -61,15 +66,14 @@ function Main(props) {
 	const renderHistory = () => {
 		if (isAuthenticated) {
 			return <Tab eventKey="history" title="History">
-				<History
-					user={loggedIn.data}
-				/>
+				<History />
 			</Tab>
 		}
 	};
 
 	return (
-		<>
+		<UserContext.Provider
+			value={{ sessions }}>
 			<div className="container">
 				<div className="wrapper">
 					<Timer
@@ -83,11 +87,11 @@ function Main(props) {
 						<Meditation />
 					</Tab>
 					{renderProfile()}
-					{/* {renderHistory()} */}
+					{renderHistory()}
 				</Tabs>
 
 			</div>
-		</>
+		</UserContext.Provider>
 	);
 }
 

@@ -102,3 +102,15 @@ li a {
     color: darkblue;
 }
 
+table {
+    width: 100%;
+}
+
+table thead tr {
+    border-top: 1px solid #666;
+}
+
+tr:nth-child(even) {
+	background-color: #17a2b8;
+	color: white;
+  }

@@ -35,9 +35,8 @@ const Timer = (params) => {
 				sessions: {
 					date: new Date(Date.now()),
 					sessionDuration: duration,
-					reportedMindfullness: reportedMindfullness,
-					reportedAttention: reportedAttention
-
+					mindfullness: reportedMindfullness,
+					attention: reportedAttention
 				}
 			})
 				.then(
@@ -130,14 +129,14 @@ const Timer = (params) => {
 							</Form.Text>
 							<Form.Label column md="6">Attention</Form.Label>
 							<Col md="6">
-								<Form.Control name="" maxLength="2" type="text" onChange={e => setReportedAttention(parseInt(e.target.value))} />
+								<Form.Control name="" maxLength="2" max={duration} type="text" onChange={e => setReportedAttention(parseInt(e.target.value))} />
 							</Col>
 
 						</Form.Group>
 						<Form.Group as={Row}>
 							<Form.Label column md="6">Mindfullness</Form.Label>
 							<Col md="6">
-								<Form.Control maxLength="2" type="text" onChange={e => setReportedMindfullness(parseInt(e.target.value))} />
+								<Form.Control maxLength="2" max={duration} type="text" onChange={e => setReportedMindfullness(parseInt(e.target.value))} />
 							</Col>
 						</Form.Group>
 					</Form>

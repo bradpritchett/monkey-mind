@@ -6,9 +6,9 @@ const userSchema = new Schema({
 	userName: { type: String, required: true },
 	sessions: [{
 		date: { type: Date, default: Date.now },
-		sessionDuration: { type: Number },
-		reportedMindfulness: { type: Number },
-		reportedAttention: { type: Number }
+		sessionDuration: { type: Number, required: true },
+		mindfullness: { type: Number, required: true },
+		attention: { type: Number, required: true }
 	}]
 
 });
