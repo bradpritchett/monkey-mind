@@ -94,7 +94,8 @@ const Timer = (params) => {
 	useEffect(() => {
 		if (isActive) {
 			let int = parseInt(shownSeconds);
-			if (int === 0 && minute == 0) {
+			if (int === 1 && minute == 0) {
+				setShownSeconds("00")
 				playGong();
 				toggle();
 				processDuration();
@@ -153,7 +154,7 @@ const Timer = (params) => {
 
 		} else {
 			return <div>
-				<p>You must login to save sessions</p>
+				<p>You must log in to save sessions</p>
 
 			</div>
 		}

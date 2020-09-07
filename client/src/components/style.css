@@ -107,7 +107,7 @@ table {
 }
 
 table thead tr {
-    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
 }
 
 tr:nth-child(even) {
