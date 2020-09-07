@@ -61,7 +61,9 @@ button.button-primary {
 button.button.button-primary.button-primary-active:active,button.button.button-primary.button-primary-active:focus, button.button.button-primary.button-primary-inactive:active,button.button.button-primary.button-primary-active:active, button.button.button-primary.button-primary-inactive:focus {
     outline: none;
 }
-
+.modal-content .modal-footer button.btn.btn-secondary {
+    margin: 0 2px !important;
+}
 .loginButton {
 	position: absolute;
     right: 0;
@@ -70,26 +72,7 @@ button.button.button-primary.button-primary-active:active,button.button.button-p
 	color:white !important;
 	-webkit-text-stroke: 1px black;
 }
-.logoutButton {
-    position: absolute;
-    right: 0;
-    top: 85px;
-    margin: 7px;
-    background: transparent;
-    font-size: 11px;
-    background: transparent !important;
-    color: white !important;
-    border: none !important;
-    font-size: 11px !important;
-}
-h3.given {
-    position: absolute;
-    right: 132px;
-    top: 6px;
-    color: white;
-    font-size: 1em;
-    padding: 7px 15px;
-}
+
 .ReactChart {
     min-height: 500px;
 }

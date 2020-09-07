@@ -7,9 +7,8 @@ const LogoutButton = () => {
 
 		isAuthenticated && (
 			<>
-				<img src={`${process.env.PUBLIC_URL}/images/profile.png`} alt="{user.given_name}" className="profile" />
 				<button
-					className="move logoutButton btn btn-light"
+					className="move logoutButton btn btn-primary"
 					onClick={logout}
 				>
 					Log Out

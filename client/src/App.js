@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import "./style.css";
 import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
+
 import Profile from "./components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -16,9 +16,8 @@ function App() {
 			<Switch>
 				<Route exact path={["/"]}>
 					<h1>Monkey Mind</h1>
+					{/* <img src={`${process.env.PUBLIC_URL}/images/profile.png`} alt="Monkey Mind" className="monkey" /> */}
 					<LoginButton />
-					<LogoutButton />
-					<Profile />
 					<Main />
 				</Route>
 			</Switch>

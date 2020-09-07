@@ -8,6 +8,7 @@ export default {
 		return axios.post("/api/user/", postData);
 	},
 	saveSession: function (postData) {
+		console.log("postdata", postData)
 		return axios.put("/api/user/" + postData.id, postData);
 	}
 };

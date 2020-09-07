@@ -15,13 +15,11 @@ const userSeed = [
 		sessions: [{
 			date: new Date(Date.now()),
 			sessionDuration: 1800000,
-			setMinutes: 20,
 			reportedAttention: 16,
 			reportedMindfulness: 30
 		}, {
 			date: new Date(Date.now()),
 			sessionDuration: 1800000,
-			setMinutes: 20,
 			reportedAttention: 16,
 			reportedMindfulness: 30
 		}]
@@ -32,13 +30,11 @@ const userSeed = [
 		sessions: [{
 			date: new Date(Date.now()),
 			sessionDuration: 1800000,
-			setMinutes: 20,
 			reportedAttention: 16,
 			reportedMindfulness: 30
 		}, {
 			date: new Date(Date.now()),
 			sessionDuration: 1800000,
-			setMinutes: 20,
 			reportedAttention: 16,
 			reportedMindfulness: 30
 		}]

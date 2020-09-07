@@ -7,9 +7,8 @@ const userSchema = new Schema({
 	sessions: [{
 		date: { type: Date, default: Date.now },
 		sessionDuration: { type: Number },
-		setMinutes: { type: Number },
-		reportedAttention: { type: Number },
-		reportedMindfulness: { type: Number }
+		reportedMindfulness: { type: Number },
+		reportedAttention: { type: Number }
 	}]
 
 });
