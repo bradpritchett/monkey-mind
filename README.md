@@ -1,7 +1,7 @@
 # Monkey Mind
 ![screenshot](screenshot..jpg)
 
-Monkey Mind is a meditation timer with the ability for users to add self-reported data like awareness and mindfulness.
+Monkey Mind is a meditation timer which allows users to chart meditation progress through saved sessions add self-reported data like awareness and mindfulness.
 
 ## Demo
 [View on Heroku](https://frozen-stream-42440.herokuapp.com/)
