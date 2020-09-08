@@ -33,7 +33,6 @@ function Main(props) {
 		if (response.data.length === 0) {
 			newUser(response);
 		} else {
-			console.log("response is", response.data[0].sessions)
 			setLoggedIn({ id: response.data[0]._id, name: response.data[0].userName, email: response.data[0].email })
 			setSessions(response.data[0].sessions);
 		}
@@ -89,7 +88,6 @@ function Main(props) {
 					{renderProfile()}
 					{renderHistory()}
 				</Tabs>
-
 			</div>
 		</UserContext.Provider>
 	);

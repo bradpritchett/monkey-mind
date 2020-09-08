@@ -30,7 +30,7 @@ const History = () => {
 											<td>{moment(session.date).format("DD/MM/YYYY hh:mm")}</td>
 											<td>{session.attention}</td>
 											<td>{session.mindfullness}</td>
-											<td>{session.sessionDuration}</td>
+											<td>{session.sessionDuration} minutes</td>
 										</tr>
 									})}
 
