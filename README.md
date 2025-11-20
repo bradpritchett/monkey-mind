@@ -9,7 +9,7 @@ Monkey Mind is a meditation timer which allows users to chart meditation progres
 ## Build
 NPM I should be run on the server and client levels.
 ## Authors
-[Brad Prichett](https://github.com/bradpritchett)
+[Brad Pritchett](https://github.com/bradpritchett)
 
 
 ## Contributing
